@@ -1,0 +1,36 @@
+1、在支付宝开发平台中下载需要的jar包，和示例
+
+2、配置好springmvc环境。
+	jsp使用jstl标签，配置web.xml
+		<?xml version="1.0" encoding="utf-8"?>
+		<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0" metadata-complete="true">
+		          
+		注意：使用web-app版本为3.0时，jsp页面需要引入<%@ page isELIgnored="false" %>
+			如果使用web-app为2.5时，jsp页面可以不必引用
+			
+使用maven：将支付宝jar包转换为本地仓库使用的pom文件。
+	// DgroupId = groupId
+	// DartifactId = artifactId
+	// Dversion = version
+	// Dpackaging = jar【文件格式】
+	// Dfile = jar包文件名称
+	 mvn install:install-file 
+	 	-DgroupId = com.ulink.three 
+	 	-DartifactId=sdk-java 
+	 	-Dversion=20170324180803 
+	 	-Dpackaging=jar 
+	 	-Dfile=alipay-sdk-java20170324180803.jar
+	 	
+	 使用：<dependency>
+		    <groupId>com.ulink.three</groupId>
+		    <artifactId>sdk-java</artifactId>
+		    <version>20170324180803</version>
+		</dependency>
+		
+已将支付宝的示例放到src/test/java目录下存储。秘钥存放电脑D:\work\java\alipay
+		          
+		          
+		              
